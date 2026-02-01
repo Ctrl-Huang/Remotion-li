@@ -48,7 +48,7 @@
 
 **规则**：
 - ✅ 重要内容**必须**在这个区域
-- ✅ 文字大小：标题 ≥ 80px，正文 ≥ 32px
+- ✅ 文字大小：根据内容,自行设定
 - ❌ 不要让内容超出这个区域
 
 ### 2. 环境层（装饰区域）
@@ -58,17 +58,13 @@
 - 右侧：3040px - 3840px
 
 **放什么**：
-- HUD 界面元素（如控制台面板）
-- 系统日志流动效果
-- 十六进制数据流
-- IP 地址和时间戳
-- 网格背景
-- 扫描线动画
+- 根据内容,自行设定
+
 
 **规则**：
 - ✅ 装饰性内容，可以放心添加
 - ✅ 可以让内容滚动或闪烁
-- ❌ 不要放重要文字（用户可能看不清）
+
 
 ### 3. 垂直安全区
 
@@ -87,14 +83,7 @@
 
 ```typescript
 // 在 constants.ts 中已定义
-primary: '#00F0FF'    // 青色
-secondary: '#FF00FF'  // 品红
-accent: '#BD00FF'     // 紫色
-success: '#00FF95'    // 绿色
-warning: '#FFCC00'    // 黄色
-danger: '#FF0055'     // 红色
-bg: '#020205'         // 深黑
-text: '#FFFFFF'       // 纯白
+根据内容,自行设定
 ```
 
 ### 颜色使用场景
@@ -142,34 +131,56 @@ box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
 
 ## 字体系统
 
-### 三种字体角色
+### 只能选用以下字体以及Emoji 符号并且智能识别本地的字体路径，融合使用，确保云端部署与本地部署完全一致；
 
 ```
-Display Font - ZCOOL QingKe HuangYou（站酷庆科黄油体）
-  └─ 用途：主标题、花字、口号
-  └─ 特点：醒目、有冲击力
-  └─ 必须：斜体（italic）
 
-Body Font - Noto Sans SC（思源黑体）
-  └─ 用途：正文、说明文字
-  └─ 字重：400（常规）/ 900（加粗）
+/usr/local/share/fonts/TikTokSans36pt-SemiBoldItalic.ttf:
+/usr/local/share/fonts/TikTokSans36pt-Light.ttf:
+/usr/local/share/fonts/seguiemj-1.45-3d.ttf:
+/usr/local/share/fonts/TikTokSans36pt-Bold.ttf:
+/usr/local/share/fonts/CascadiaCode-LightItalic.otf:
+/usr/local/share/fonts/TikTokSans36pt-Medium.ttf:
+/usr/local/share/fonts/MiSans-Medium.ttf:
+/usr/local/share/fonts/CascadiaCode-Regular.otf:
+/usr/local/share/fonts/TikTokSans36pt-Black.ttf:
+/usr/local/share/fonts/TikTokSans36pt-Regular.ttf:
+/usr/local/share/fonts/TikTokSans36pt-Italic.ttf:
+/usr/local/share/fonts/TikTokSans36pt-BoldItalic.ttf:
+/usr/local/share/fonts/seguiemj-1.40-3d.ttf:
+/usr/local/share/fonts/MiSans-Heavy.ttf:
+/usr/local/share/fonts/TikTokSans36pt-SemiBold.ttf:
+/usr/local/share/fonts/CascadiaCode-Light.otf:
+/usr/local/share/fonts/self-compiled-flat.ttf:
+/usr/local/share/fonts/MiSans-Thin.ttf:
+/usr/local/share/fonts/MiSans-Semibold.ttf:
+/usr/local/share/fonts/MiSans-Bold.ttf:
+/usr/local/share/fonts/CascadiaCode-ExtraLight.otf:
+/usr/local/share/fonts/TikTokSans36pt-ExtraBoldItalic.ttf:
+/usr/local/share/fonts/MiSans-Regular.ttf:
+/usr/local/share/fonts/CascadiaCode-SemiLightItalic.otf:
+/usr/local/share/fonts/TikTokSans36pt-MediumItalic.ttf:
+/usr/local/share/fonts/AppleColorEmoji.woff:
+/usr/local/share/fonts/CascadiaCode-SemiLight.otf:
+/usr/local/share/fonts/seguisym.ttf:
+/usr/local/share/fonts/CascadiaCode-SemiBold.otf:
+/usr/local/share/fonts/MiSans-Light.ttf:
+/usr/local/share/fonts/TikTokSans36pt-ExtraBold.ttf:
+/usr/local/share/fonts/AppleColorEmoji.ttf:
+/usr/local/share/fonts/TikTokSans36pt-BlackItalic.ttf:
+/usr/local/share/fonts/MiSans-ExtraLight.ttf:
+/usr/local/share/fonts/CascadiaCode-SemiBoldItalic.otf:
+/usr/local/share/fonts/MiSans-Demibold.ttf:
+/usr/local/share/fonts/MiSans-Normal.ttf:
+/usr/local/share/fonts/seguiemj-1.35-flat.ttf:
+/usr/local/share/fonts/CascadiaCode-BoldItalic.otf:
+/usr/local/share/fonts/CascadiaCode-ExtraLightItalic.otf:
+/usr/local/share/fonts/TikTokSans36pt-LightItalic.ttf:
+/usr/local/share/fonts/CascadiaCode-Italic.otf:
+/usr/local/share/fonts/CascadiaCode-Bold.otf:
 
-Mono Font - JetBrains Mono（等宽字体）
-  └─ 用途：代码、IP地址、哈希值
-  └─ 特点：清晰、易读
 ```
 
-### 字号规范
-
-| 元素 | 字号 | 字体 | 字重 |
-|-----|------|------|------|
-| 超大标题 | 120px - 200px | Display | Bold + Italic |
-| 大标题 | 80px - 120px | Display | Bold + Italic |
-| 中标题 | 60px - 80px | Body | 900 |
-| 小标题 | 40px - 60px | Body | 900 |
-| 正文 | 32px - 40px | Body | 400 |
-| 代码/数据 | 24px - 32px | Mono | 400 |
-| HUD 装饰文字 | 16px - 24px | Mono | 400 |
 
 ### 使用示例
 
@@ -454,10 +465,7 @@ const ProgressBar = ({ progress }: { progress: number }) => (
 - [ ] 没有硬编码的颜色值
 - [ ] 配色符合使用场景（如成功用绿色）
 
-### 字体
-- [ ] Display 字体加了 `italic` 斜体
-- [ ] 字号符合规范（标题 ≥ 80px，正文 ≥ 32px）
-- [ ] 代码用 Mono 字体
+
 
 ### 动画
 - [ ] 使用 `spring` 或 `interpolate`，不用 CSS transition
@@ -475,16 +483,16 @@ const ProgressBar = ({ progress }: { progress: number }) => (
 
 ### 参考风格
 
-- **赛博朋克**：高对比度、霓虹色、网格、扫描线
+
 - **科技 HUD**：控制台界面、数据流、系统状态
-- **极简主义**：大量留白、单一焦点、清晰层级
+
 
 ### 不要做
 
-- ❌ 过度装饰（画面太满）
+- ❌ 过少装饰（画面太少）
 - ❌ 颜色太多（保持3-4种主色）
 - ❌ 动画太复杂（容易让人分心）
-- ❌ 文字太小（4K 屏幕也要考虑可读性）
+- ❌ 文字太大或者太小（4K 屏幕也要考虑可读性）
 
 ---
 
