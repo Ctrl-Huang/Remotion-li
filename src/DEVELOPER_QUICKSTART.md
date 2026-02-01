@@ -383,18 +383,9 @@ const delayedEntrance = spring({
 在 `constants.ts` 里已定义：
 
 ```typescript
-export const THEME = {
-  colors: {
-    primary: '#00F0FF',    // 青色：主要强调、扫描线
-    secondary: '#FF00FF',  // 品红：次要强调
-    accent: '#BD00FF',     // 紫色：特殊状态
-    success: '#00FF95',    // 绿色：成功、验证通过
-    warning: '#FFCC00',    // 黄色：警告
-    danger: '#FF0055',     // 红色：错误、警报
-    bg: '#020205',         // 深黑色：背景
-    text: '#FFFFFF'        // 白色：文字
-  }
-};
+
+自行设计
+
 ```
 
 ### 使用场景
@@ -407,53 +398,6 @@ export const THEME = {
 | `danger` | 隐私泄露、脏 IP、非法访问 |
 
 ---
-
-## 字体使用规范
-
-### 三种字体角色
-
-```typescript
-THEME.fonts = {
-  display: 'var(--font-DisplayFont)',  // 标题专用，必须斜体
-  body: 'var(--font-BodyFont)',        // 正文，400或900字重
-  mono: 'var(--font-MonoFont)'         // 代码和数据
-}
-```
-
-### 使用规则
-
-1. **Display Font（展示字体）**
-   - 仅用于标题和花字
-   - **必须**加 `italic` 斜体
-   - 字号建议：80px - 200px
-
-2. **Body Font（正文字体）**
-   - 用于解说文字、说明
-   - 字重：400（常规）或 900（加粗）
-   - 字号建议：24px - 60px
-
-3. **Mono Font（等宽字体）**
-   - 用于代码、IP地址、哈希值
-   - 字号建议：20px - 40px
-
-### 示例
-
-```tsx
-{/* 标题：Display + 斜体 */}
-<h1 className="text-[120px] font-bold italic" style={{ fontFamily: THEME.fonts.display }}>
-  TRIDENT ENGINE
-</h1>
-
-{/* 正文：Body */}
-<p className="text-4xl font-normal" style={{ fontFamily: THEME.fonts.body }}>
-  资产锚定协议
-</p>
-
-{/* 代码：Mono */}
-<code className="text-2xl font-mono" style={{ fontFamily: THEME.fonts.mono }}>
-  192.168.1.1
-</code>
-```
 
 ---
 
