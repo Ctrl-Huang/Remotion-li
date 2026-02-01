@@ -1,0 +1,28 @@
+{
+  "name": "remotion-tech-explainer",
+  "version": "1.0.0",
+  "description": "Industrial Remotion Stack with Asset Grounding Protocol",
+  "scripts": {
+    "start": "remotion preview src/index.ts",
+    "build": "remotion render src/index.ts TechExplainerMain out/video.mp4",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.414",
+    "@remotion/google-fonts": "4.0.414",
+    "@remotion/player": "4.0.414",
+    "@remotion/tailwind": "4.0.414",
+    "@remotion/zod-types": "4.0.414",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "remotion": "4.0.414",
+    "zod": "3.22.3"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.0",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  }
+}
