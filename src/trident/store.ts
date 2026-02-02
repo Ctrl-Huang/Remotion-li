@@ -1,23 +1,35 @@
 
 /**
- * 🧠 Trident Memory Store
- * 存储已经通过 "深度挖掘" 后生成的 Blob URL 或最终确认可用的 URL
+ * Trident Store: The atomic source of truth for assets.
  */
+class TridentStoreImpl {
+    private assets = new Map<string, string>();
+    private metadata = new Map<string, any>();
 
-const resolvedAssets = new Map<string, string>();
+    set(id: string, url: string, meta?: any) {
+        // If we already have a blob URL, we should ideally revoke it if it changes
+        // But for a single render run, we usually just set it once.
+        this.assets.set(id, url);
+        if (meta) this.metadata.set(id, meta);
+    }
 
-export const TridentStore = {
-  set: (id: string, url: string) => {
-    resolvedAssets.set(id, url);
-  },
-  
-  get: (id: string): string | undefined => {
-    return resolvedAssets.get(id);
-  },
+    get(id: string): string | undefined {
+        return this.assets.get(id);
+    }
 
-  has: (id: string): boolean => {
-    return resolvedAssets.has(id);
-  },
+    getMeta(id: string): any {
+        return this.metadata.get(id);
+    }
 
-  dump: () => Object.fromEntries(resolvedAssets)
-};
+    clear() {
+        this.assets.forEach(url => {
+            if (url.startsWith('blob:')) {
+                URL.revokeObjectURL(url);
+            }
+        });
+        this.assets.clear();
+        this.metadata.clear();
+    }
+}
+
+export const TridentStore = new TridentStoreImpl();

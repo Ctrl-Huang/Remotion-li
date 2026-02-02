@@ -4,7 +4,7 @@
   "description": "Industrial Remotion Stack with Asset Grounding Protocol",
   "scripts": {
     "start": "remotion preview src/index.ts",
-    "build": "remotion render src/index.ts TechExplainerMain out/video.mp4",
+    "build": "remotion render src/index.ts Main out/video.mp4",
     "upgrade": "remotion upgrade"
   },
   "dependencies": {
